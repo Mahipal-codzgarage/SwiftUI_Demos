@@ -11,7 +11,7 @@ import SwiftUI
 struct text_demoApp: App {
     var body: some Scene {
         WindowGroup {
-            AppStorageBootcamp()
+            IntroView()
         }
     }
 }

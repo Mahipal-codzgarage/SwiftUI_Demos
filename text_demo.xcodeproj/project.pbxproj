@@ -34,6 +34,7 @@
 		3467C9B82983B35C00958C5D /* AppStorageBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3467C9B72983B35C00958C5D /* AppStorageBootcamp.swift */; };
 		3467C9BB2983CBA500958C5D /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3467C9BA2983CBA500958C5D /* IntroView.swift */; };
 		3467C9BD2983CE5B00958C5D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3467C9BC2983CE5B00958C5D /* OnboardingView.swift */; };
+		3467C9BF2983F57500958C5D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3467C9BE2983F57500958C5D /* ProfileView.swift */; };
 		3478652E297E63DD00BC57AA /* ColorpickerBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478652D297E63DD00BC57AA /* ColorpickerBootcamp.swift */; };
 		34786532297E65E600BC57AA /* DatepickerBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34786531297E65E600BC57AA /* DatepickerBootcamp.swift */; };
 		34786534297E6BDA00BC57AA /* StepperBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34786533297E6BDA00BC57AA /* StepperBootcamp.swift */; };
@@ -95,6 +96,7 @@
 		3467C9B72983B35C00958C5D /* AppStorageBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageBootcamp.swift; sourceTree = "<group>"; };
 		3467C9BA2983CBA500958C5D /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		3467C9BC2983CE5B00958C5D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		3467C9BE2983F57500958C5D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		3478652D297E63DD00BC57AA /* ColorpickerBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorpickerBootcamp.swift; sourceTree = "<group>"; };
 		34786531297E65E600BC57AA /* DatepickerBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatepickerBootcamp.swift; sourceTree = "<group>"; };
 		34786533297E6BDA00BC57AA /* StepperBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperBootcamp.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			children = (
 				3467C9BA2983CBA500958C5D /* IntroView.swift */,
 				3467C9BC2983CE5B00958C5D /* OnboardingView.swift */,
+				3467C9BE2983F57500958C5D /* ProfileView.swift */,
 			);
 			path = OnboardingViews;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				344031362977DA5F00100809 /* GredientBootcamp.swift in Sources */,
 				34FEA82B297A6F8E00FED568 /* NavigationBootcamp.swift in Sources */,
 				3445D2082976C4E200B9C8BE /* TextBootcamp.swift in Sources */,
+				3467C9BF2983F57500958C5D /* ProfileView.swift in Sources */,
 				34D867122979626600E9F307 /* BindingBootcamp.swift in Sources */,
 				34FEA82D297A75EF00FED568 /* ListBootcamp.swift in Sources */,
 				34786538297E82B600BC57AA /* TabviewBootcamp.swift in Sources */,

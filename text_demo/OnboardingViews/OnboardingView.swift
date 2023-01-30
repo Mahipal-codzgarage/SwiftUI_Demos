@@ -17,10 +17,25 @@ struct OnboardingView: View {
      3 - add gender
      */
 
-    @State var onboardingState: Int = 3
+    let transition: AnyTransition = .asymmetric(insertion: .move(edge: .trailing),
+                                                removal: .move(edge: .leading))
+
+    @State var onboardingState: Int = 0
+
+    // onboarding inputes
     @State var name = ""
     @State var age:Double = 25
     @State var gender: String = ""
+
+    // for the alert
+    @State var alertText = ""
+    @State var isAlertVisible = false
+
+    // app storage
+    @AppStorage("name") var currentUserName: String?
+    @AppStorage("age") var currentUserAge: Int?
+    @AppStorage("gender") var currentUserGender: String?
+    @AppStorage("signed_in") var currentUserSingedIn = false
 
     var genderArray = ["Male", "Female"]
 
@@ -31,12 +46,16 @@ struct OnboardingView: View {
                 switch onboardingState {
                     case 0 :
                         welcomeSection
+                            .transition(transition)
                     case 1 :
                         addNameSection
+                            .transition(transition)
                     case 2 :
                         addAgeSection
+                            .transition(transition)
                     case 3 :
                         addGenderSection
+                            .transition(transition)
                     default :
                         RoundedRectangle(cornerRadius: 25)
                             .background(Color.yellow)
@@ -49,6 +68,11 @@ struct OnboardingView: View {
                 buttomButton
             }
             .padding(30)
+        }
+        .alert(alertText, isPresented: $isAlertVisible) {
+            Button("Ok", role: .cancel, action: {
+
+            })
         }
     }
 }
@@ -65,15 +89,18 @@ struct OnboardingView_Previews: PreviewProvider {
 extension OnboardingView {
 
     private var buttomButton: some View {
-        Text("Sign in")
-            .font(.headline)
-            .foregroundColor(.purple)
+        Text(onboardingState == 0 ? "Sign up" :
+                onboardingState == 3 ? "Finish" :
+                "Next")
+        .font(.headline)
+        .foregroundColor(.purple)
             .frame(height: 55)
             .frame(maxWidth: .infinity)
             .background(Color.white)
             .cornerRadius(10)
+            .animation(nil)
             .onTapGesture {
-
+                handleNextButtonPressed()
             }
     }
 
@@ -172,21 +199,19 @@ extension OnboardingView {
                 .fontWeight(.semibold)
                 .foregroundColor(.white)
 
-            Text("\(gender)")
-                .font(.largeTitle)
-                .fontWeight(.semibold)
-                .foregroundColor(.white)
-
             Menu {
                 Picker(selection: $gender,
                        label: EmptyView(),
                        content: {
-                    Text(genderArray[0]).tag(genderArray[0])
-                    Text(genderArray[1]).tag(genderArray[1])
+
+                    ForEach(genderArray, id: \.self) { item in
+                        Text(item).tag(item)
+                    }
+
                 }).pickerStyle(.automatic)
                     .tint(.white)
             } label: {
-                Text("Select your gender")
+                Text(gender == "" ? "Select a gender " : gender)
                     .font(.title3)
                     .frame(maxWidth: .infinity)
                     .frame(height: 55)
@@ -200,5 +225,49 @@ extension OnboardingView {
         }
         //.multilineTextAlignment(.center)
         .padding(30)
+    }
+}
+
+//MARK: - FUNCATIONS
+
+extension OnboardingView {
+    func handleNextButtonPressed() {
+
+//        switch onboardingState {
+//            case 1 :
+//                guard name.count >= 3 else {
+//                    showAlert(title: "Please enter your name")
+//                    return
+//                }
+//            case 3 :
+//                guard gender.count > 1 else {
+//                    showAlert(title: "Please select your gender")
+//                    return
+//                }
+//            default:
+//                break
+//        }
+
+        if onboardingState == 3 {
+            signIN()
+        } else {
+            withAnimation(.spring()) {
+                onboardingState += 1
+            }
+        }
+    }
+
+    func showAlert(title: String) {
+        alertText = title
+        isAlertVisible.toggle()
+    }
+
+    func signIN() {
+        currentUserName = name
+        currentUserAge = Int(age)
+        currentUserGender = gender
+        withAnimation(.spring()) {
+            currentUserSingedIn = true
+        }
     }
 }

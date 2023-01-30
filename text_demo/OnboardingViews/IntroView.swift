@@ -13,7 +13,7 @@ struct IntroView: View {
 
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color.blue, Color.white]),
+            LinearGradient(gradient: Gradient(colors: [Color.blue, Color.cyan]),
                            startPoint: .top,
                            endPoint: .bottom)
                             .ignoresSafeArea()
@@ -22,10 +22,14 @@ struct IntroView: View {
 
             if currentUserSingedIn {
                 // login screen
-                
+                ProfileView()
+                    .transition(.asymmetric(insertion: .move(edge: .bottom),
+                                            removal: .move(edge: .top)))
             } else {
                 // onboarding screen
-
+                OnboardingView()
+                    .transition(.asymmetric(insertion: .move(edge: .top),
+                                            removal: .move(edge: .bottom)))
             }
         }
     }
