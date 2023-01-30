@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 16.0, *)
 struct TextBootcamp: View {
     var body: some View {
         Text("Hello, World! this is multiple line text demo ".uppercased())
@@ -25,6 +26,7 @@ struct TextBootcamp: View {
     }
 }
 
+@available(iOS 16.0, *)
 struct TextBootcamp_Previews: PreviewProvider {
     static var previews: some View {
         TextBootcamp()
